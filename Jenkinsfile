@@ -2,26 +2,26 @@ pipeline {
     agent any
     
     stages {
-        stage('One') {
+        stage('Compile') {
             steps {
                 echo 'Hi, this is AS3000, sample test'
             }
         }
             
-        stage('Two') {
+        stage('Deploy') {
             steps {
                 input('Do you want to proceed?')    
             }
         }
             
-        stage('Three') {
+        stage('Test') {
             when {
                 not {
                     branch "master"
                 }
         }
             steps {
-                echo "Hello"
+                echo "Test in progress"
             }
         }
     }
